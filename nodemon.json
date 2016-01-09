@@ -1,0 +1,9 @@
+{
+  "watch": [
+    "src",
+    "webpack.config.babel.js"
+  ],
+  "events": {
+    "restart": "rimraf dist/* & clear"
+  }
+}
