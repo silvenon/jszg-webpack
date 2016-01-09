@@ -3,7 +3,7 @@
   "scripts": {
     "prebuild": "rimraf dist/* && clear",
     "build": "webpack",
-    "build:dev": "nodemon --exec 'npm run build'",
+    "build:watch": "nodemon --exec 'npm run build'",
     "build:prod": "NODE_ENV=production npm run build"
   },
   "devDependencies": {
