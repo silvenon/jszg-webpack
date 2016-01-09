@@ -1,5 +1,6 @@
-import path from 'path';
+import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import path from 'path';
 
 export default {
   entry: './src/index.js',
@@ -7,7 +8,10 @@ export default {
     path: path.resolve('./dist'),
     filename: 'bundle.js'
   },
-  plugins: [
+  plugins: process.env.NODE_ENV === 'production' ? [
+    new ExtractTextPlugin('style.css'),
+    new webpack.optimize.UglifyJsPlugin()
+  ] : [
     new ExtractTextPlugin('style.css')
   ],
   module: {
