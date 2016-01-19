@@ -1,6 +1,5 @@
 import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import path from 'path';
 
 let plugins = [
   new ExtractTextPlugin('style.css')
@@ -14,9 +13,9 @@ if (process.env.NODE_ENV === 'production') {
 
 export default {
   devtool: 'source-map',
-  entry: './src/index.js',
+  entry: './src',
   output: {
-    path: path.resolve('./dist'),
+    path: './dist',
     filename: 'bundle.js'
   },
   plugins,
