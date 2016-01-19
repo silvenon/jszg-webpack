@@ -2,18 +2,23 @@ import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import path from 'path';
 
+let plugins = [
+  new ExtractTextPlugin('style.css')
+];
+
+if (process.env.NODE_ENV === 'production') {
+  plugins = plugins.concat(
+    new webpack.optimize.UglifyJsPlugin()
+  );
+}
+
 export default {
   entry: './src/index.js',
   output: {
     path: path.resolve('./dist'),
     filename: 'bundle.js'
   },
-  plugins: process.env.NODE_ENV === 'production' ? [
-    new ExtractTextPlugin('style.css'),
-    new webpack.optimize.UglifyJsPlugin()
-  ] : [
-    new ExtractTextPlugin('style.css')
-  ],
+  plugins,
   module: {
     loaders: [
       {
