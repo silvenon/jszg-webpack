@@ -13,6 +13,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 export default {
+  devtool: 'source-map',
   entry: './src/index.js',
   output: {
     path: path.resolve('./dist'),
