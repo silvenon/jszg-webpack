@@ -8,6 +8,8 @@ $ npm run build:watch # create a build and watch for changes
 $ npm run build:prod # create a production build
 ```
 
+`npm run:watch` uses some weird nodemon command because I wanted webpack to refresh automatically even when you edit the config file. It’s basically `webpack --watch`.
+
 ## Sources
 
 * [webpack documentation][0]
